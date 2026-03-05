@@ -117,12 +117,24 @@ document.addEventListener('DOMContentLoaded', () => {
       const name = document.getElementById('form-name').value;
       const phone = document.getElementById('form-phone').value;
       const age = document.getElementById('form-age').value;
-      const treatmentElement = document.getElementById('form-treatment');
-      const treatment = treatmentElement.options[treatmentElement.selectedIndex].text;
+      const treatmentSelect = document.getElementById('form-treatment');
+      const treatment = treatmentSelect.options[treatmentSelect.selectedIndex].text;
+      const branchSelect = document.getElementById('form-branch');
+      const branch = branchSelect.options[branchSelect.selectedIndex].text;
+      const timeSelect = document.getElementById('form-time');
+      const time = timeSelect.options[timeSelect.selectedIndex].text;
       const date = document.getElementById('form-date').value;
 
       // Construct WhatsApp Message
-      const message = `Hello, I would like to request an appointment.\n\n*Name:* ${name}\n*Age:* ${age}\n*Phone:* ${phone}\n*Treatment Needed:* ${treatment}\n*Preferred Date:* ${date}`;
+      const message = `Hello, I would like to request an appointment.\n\n` +
+        `*Name:* ${name}\n` +
+        `*Age:* ${age}\n` +
+        `*Phone:* ${phone}\n` +
+        `*Clinic Branch:* ${branch}\n` +
+        `*Treatment:* ${treatment}\n` +
+        `*Date:* ${date}\n` +
+        `*Time:* ${time}`;
+
       const encodedMessage = encodeURIComponent(message);
       const whatsappUrl = `https://wa.me/919716675343?text=${encodedMessage}`;
 
